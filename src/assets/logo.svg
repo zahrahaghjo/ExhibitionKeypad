@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 132" role="img" aria-label="Butane logo placeholder">
+  <!-- Placeholder logo. Replace this file with your real logo (keep the name, or update the import in src/components/Logo.tsx). -->
+  <rect x="86" y="46" width="170" height="56" rx="28" fill="#111" stroke="#fff" stroke-width="4"/>
+  <text x="171" y="86" text-anchor="middle" font-family="Vazirmatn, Tahoma, sans-serif" font-size="38" font-weight="800" fill="#fff">بوتان</text>
+  <path d="M52 6 C52 6 14 46 14 76 a38 38 0 0 0 76 0 C90 46 52 6 52 6 Z" fill="#fff"/>
+  <path d="M52 16 C52 16 22 50 22 76 a30 30 0 0 0 60 0 C82 50 52 16 52 16 Z" fill="#e4262a"/>
+  <path d="M52 52 C52 52 38 68 38 80 a14 14 0 0 0 28 0 C66 68 52 52 52 52 Z" fill="#fff"/>
+  <text x="52" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="800" fill="#fff" letter-spacing="1">BUTANE</text>
+</svg>

@@ -1,0 +1,191 @@
+:root {
+  --red: #c61e22;
+  --red-dark: #b01b1f;
+  --key-bg: #9d9d9d;
+  --key-edge: rgba(0, 0, 0, 0.3);
+  --card-edge: #d8d8d8;
+  --width: min(460px, 92vw);
+  /* 3 digit columns + 1 wide action column (2.8x) with 12px gaps */
+  --gap: 12px;
+  --key: calc((var(--width) - 3 * var(--gap)) / 5.8);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Vazirmatn Variable', Vazirmatn, Tahoma, system-ui, sans-serif;
+  color: #1b1b1b;
+  background:
+    radial-gradient(120% 60% at 20% 105%, rgba(0, 0, 0, 0.1) 0 45%, transparent 46%),
+    radial-gradient(120% 50% at 90% 115%, rgba(0, 0, 0, 0.07) 0 45%, transparent 46%),
+    var(--red);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page {
+  width: var(--width);
+  margin: 0 auto;
+  padding: 36px 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  display: block;
+  width: min(260px, 70vw);
+  height: auto;
+}
+
+/* ---------- number display ---------- */
+
+.display {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #555;
+  user-select: none;
+}
+
+.display__group {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.slot {
+  display: inline-block;
+  min-width: 0.7em;
+  text-align: center;
+  line-height: 1;
+}
+
+/* empty position: a small round dot, drawn in CSS so it sits on the baseline */
+.slot--empty::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8a8a8a;
+  vertical-align: middle;
+}
+
+/* ---------- keypad ---------- */
+
+.keypad {
+  /* keep the physical layout (1 2 3 on the left) even though the page is RTL */
+  direction: ltr;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, var(--key)) 1fr;
+  grid-auto-rows: var(--key);
+  gap: var(--gap);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+}
+
+.key {
+  border-radius: 8px;
+  background: var(--key-bg);
+  color: #fff;
+  font-size: calc(var(--key) * 0.42);
+  font-weight: 800;
+  box-shadow: inset 5px 5px 0 var(--key-edge);
+  border: 2px solid #aeaeae;
+  transition: transform 0.06s ease, box-shadow 0.06s ease, filter 0.1s;
+}
+
+.key:hover {
+  filter: brightness(1.06);
+}
+
+.key:active {
+  transform: translate(2px, 2px);
+  box-shadow: inset 2px 2px 0 var(--key-edge);
+}
+
+.key--zero {
+  justify-self: start;
+  width: var(--key);
+}
+
+.action {
+  direction: rtl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  font-size: calc(var(--key) * 0.3);
+  font-weight: 600;
+  box-shadow: inset -5px -5px 0 var(--card-edge);
+  transition: transform 0.06s ease, box-shadow 0.06s ease;
+}
+
+.action:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: inset -2px -2px 0 var(--card-edge);
+}
+
+.action:disabled {
+  color: #b5b5b5;
+  cursor: not-allowed;
+}
+
+.action:disabled .action__icon {
+  opacity: 0.85;
+}
+
+.key:focus-visible,
+.action:focus-visible {
+  outline: 3px solid #ffd24a;
+  outline-offset: 2px;
+}
+
+/* ---------- status line ---------- */
+
+.status {
+  margin: 0;
+  min-height: 1.6em;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 380px) {
+  .display {
+    gap: 14px;
+    font-size: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key,
+  .action {
+    transition: none;
+  }
+}
