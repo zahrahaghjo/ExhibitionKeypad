@@ -6,10 +6,6 @@ A Persian (RTL) mobile-number keypad, rebuilt with **React 19 + Vite + TypeScrip
 
 ![Preview](docs/preview.png)
 
-| Number entered & sent | Mobile |
-| --- | --- |
-| ![Filled](docs/preview-filled.png) | ![Mobile](docs/preview-mobile.png) |
-
 <details>
 <summary>Original design (for comparison)</summary>
 
