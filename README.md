@@ -2,7 +2,7 @@
 
 A Persian (RTL) mobile-number keypad, rebuilt with **React 19 + Vite + TypeScript** and managed with **yarn**.
 
-**Live demo:** https://github.com/zahrahaghjo/ExhibitionKeypad.git
+**Live demo:** https://zahrahaghjo.github.io/ExhibitionKeypad
 
 ![Preview](docs/preview.png)
 
